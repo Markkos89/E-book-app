@@ -16,17 +16,16 @@ router.post("/upload", upload.single("file"), async (req, res) => {
   try {
     const b64 = Buffer.from(req.file.buffer).toString("base64");
     let dataURI = "data:" + req.file.mimetype + ";base64," + b64;
-    const res = await cloudinary.uploader.upload(dataURI, {
+    const cloudinaryResponse = await cloudinary.uploader.upload(dataURI, {
       resource_type: "auto",
     });
-    console.log({ res });
     const { name, description } = req.body;
 
     const createdAt = moment(new Date()).format("YYYY-MM-DD");
 
     const file = await File.create({
       name,
-      path: upload.secure_url,
+      path: cloudinaryResponse.secure_url,
       createdAt,
       description,
     });
