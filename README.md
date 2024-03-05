@@ -40,6 +40,8 @@ Envinronment variables:
 REACT_APP_BACKEND_URL=http://localhost:4000
 ```
 
+Live hosting URL: https://ebook-app.netlify.app/
+
 
 
 
