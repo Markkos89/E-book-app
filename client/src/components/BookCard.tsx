@@ -10,9 +10,12 @@ type Props = {
 
 export const BookCard = ({ book }: Props) => {
   const handleDelete = async (id: string) => {
-    const res = await axios.post("http://localhost:4000/delete", {
-      id,
-    });
+    const res = await axios.post(
+      `${process.env.REACT_APP_BACKEND_URL}/delete`,
+      {
+        id,
+      }
+    );
 
     if (res.data.status === true) {
       //   getFiles();

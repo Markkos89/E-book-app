@@ -26,7 +26,7 @@ export const NewBookForm = (props: Props) => {
         };
 
         const res = await axios.post(
-          "http://localhost:4000/upload",
+          `${process.env.REACT_APP_BACKEND_URL}/upload`,
           formData,
           config
         );

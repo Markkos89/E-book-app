@@ -16,7 +16,9 @@ function App() {
   const [data, setData] = useState<IBookData[]>([]);
 
   const getFiles = async () => {
-    const filesData = await axios.get("http://localhost:4000/files");
+    const filesData = await axios.get(
+      `${process.env.REACT_APP_BACKEND_URL}/files`
+    );
 
     // console.log(filesData);
     setData(filesData.data.files);
