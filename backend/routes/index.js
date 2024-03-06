@@ -45,7 +45,7 @@ router.post("/upload", upload.single("file"), async (req, res) => {
   }
 });
 
-// user data
+// get books data
 router.get("/files", async (req, res) => {
   try {
     const files = await File.find();
@@ -64,11 +64,10 @@ router.get("/files", async (req, res) => {
   }
 });
 
-// delete user data
+// delete book data
 router.post("/delete", async (req, res) => {
   try {
     const { id } = req.body;
-    // console.log("id",id);
 
     const file = await File.findByIdAndDelete(id);
 
