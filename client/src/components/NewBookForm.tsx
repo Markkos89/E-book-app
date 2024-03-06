@@ -49,7 +49,7 @@ export const NewBookForm = (props: Props) => {
     <div className="container mt-3">
       <h1>Upload your Image Here</h1>
       <Form onSubmit={addNewFile}>
-        <Form.Group className="mb-3 mt-3" controlId="fileuploaderform">
+        <Form.Group className="mb-3 mt-3" controlId="filenamecontrol">
           <Form.Label>Filename</Form.Label>
           <Form.Control
             type="text"
@@ -60,7 +60,7 @@ export const NewBookForm = (props: Props) => {
             value={name}
           />
         </Form.Group>
-        <Form.Group className="mb-3 mt-3" controlId="fileuploaderform">
+        <Form.Group className="mb-3 mt-3" controlId="filedescriptioncontrol">
           <Form.Label>File Description?</Form.Label>
           <Form.Control
             type="text"
@@ -71,7 +71,7 @@ export const NewBookForm = (props: Props) => {
             value={description}
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="fileuploaderform">
+        <Form.Group className="mb-3" controlId="filecontrol">
           <Form.Label>File</Form.Label>
           <Form.Control
             type="file"
