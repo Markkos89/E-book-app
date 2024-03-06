@@ -17,7 +17,7 @@ connectDB();
 const router = require("./routes");
 app.use(router);
 
-const PORT = process.env.NODE_PORT;
+const PORT = process.env.PORT || process.env.NODE_PORT;
 app.listen(PORT, () => {
   console.log("server listening on port", PORT);
 });
