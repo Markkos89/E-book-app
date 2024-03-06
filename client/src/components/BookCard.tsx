@@ -37,8 +37,9 @@ export const BookCard = ({ book }: Props) => {
         const url = window.URL.createObjectURL(new Blob([blob]));
 
         const link = document.createElement("a");
+        const extension = filePath.split(".")[3];
         link.href = url;
-        link.download = fileName + ".jpg";
+        link.download = fileName + "." + extension;
 
         document.body.appendChild(link);
 
