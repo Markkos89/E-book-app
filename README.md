@@ -28,7 +28,7 @@ NODE_CLOUDINARY_API_KEY=your_cloudinary_apikey
 NODE_CLOUDINARY_API_SECRET=your_cloudinary_apisecret
 ```
 
-Live hosting URL: https://e-book-app.onrender.com
+Live hosting URL: https://ebook-api-a8a450ab11f6.herokuapp.com
 
 ### Client
 
