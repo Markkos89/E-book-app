@@ -1,8 +1,9 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
 import "./App.css";
-import { BookCard } from "./components/BookCard";
-import { NewBookForm } from "./components/NewBookForm";
+import { Routes, Route } from "react-router-dom";
+import { Layout } from "./components/Layout";
+import { NotFoundPage } from "./pages/NotFoundPage";
+import { HomePage } from "./pages/HomePage";
+import { NewBookPage } from "./pages/NewBookPage";
 
 export interface IBookData {
   _id: string;
@@ -13,35 +14,15 @@ export interface IBookData {
 }
 
 function App() {
-  const [data, setData] = useState<IBookData[]>([]);
-
-  const getFiles = async () => {
-    const filesData = await axios.get(
-      `${process.env.REACT_APP_BACKEND_URL}/files`
-    );
-
-    // console.log(filesData);
-    setData(filesData.data.files);
-  };
-
-  useEffect(() => {
-    getFiles();
-  }, []);
-
   return (
     <>
-      <div className="container mt-3">
-        <h1>E-book Uploader / Downloader</h1>
-        <div className="text-end">
-          <NewBookForm />
-        </div>
-
-        <div className="d-flex row justify-content-between align-items-center mt-5 ">
-          {data?.length > 0
-            ? data.map((file, idx) => <BookCard book={file} />)
-            : null}
-        </div>
-      </div>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="newbook" element={<NewBookPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Route>
+      </Routes>
     </>
   );
 }
